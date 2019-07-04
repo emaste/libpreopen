@@ -5,7 +5,7 @@ freebsd_11_task:
     - pkg install -y cmake llvm ninja py36-pip
     - python3 -m pip install lit
   script:
-    - ci/build.sh Debug
+    - LIBPREOPEN_SRC_DIR=$(pwd)/lib LIBPREOPEN_BUILD_DIR=$(pwd)/build/Debug ci/build.sh Debug
 
 freebsd_12_task:
   freebsd_instance:
@@ -14,4 +14,4 @@ freebsd_12_task:
     - pkg install -y cmake llvm ninja py36-pip
     - python3 -m pip install lit
   script:
-    - ci/build.sh Debug
+    - LIBPREOPEN_SRC_DIR=$(pwd)/lib LIBPREOPEN_BUILD_DIR=$(pwd)/build/Debug ci/build.sh Debug
