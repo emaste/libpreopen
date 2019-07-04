@@ -1,13 +1,17 @@
 freebsd_11_task:
   freebsd_instance:
     image: freebsd-11-2-release-amd64
-  install_script: pkg install -y cmake llvm ninja
+  install_script:
+    - pkg install -y cmake llvm ninja py36-pip
+    - python3 -m pip install lit
   script:
     - ci/build.sh Debug
 
 freebsd_12_task:
   freebsd_instance:
     image: freebsd-12-0-release-amd64
-  install_script: pkg install -y cmake llvm ninja
+  install_script:
+    - pkg install -y cmake llvm ninja py36-pip
+    - python3 -m pip install lit
   script:
     - ci/build.sh Debug
