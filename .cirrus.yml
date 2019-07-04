@@ -11,13 +11,3 @@ freebsd_12_task:
   install_script: pkg install -y cmake ninja
   script:
     - ci/build.sh Debug
-
-
-debian_stable_task:
-  container:
-    image: debian:stable
-  setup_script:
-    - apt-get update
-    - apt-get install -y cmake g++ gcc ninja-build
-  script:
-    - ci/build.sh Debug
